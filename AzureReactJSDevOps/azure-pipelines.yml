@@ -61,7 +61,7 @@ stages:
         deploy:
           steps:            
           - task: AzureRmWebAppDeployment@4
-            displayName: 'Azure App Service Deploy: ansalemo-react-devops'
+            displayName: 'Azure App Service Deploy: <webApp name>'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux

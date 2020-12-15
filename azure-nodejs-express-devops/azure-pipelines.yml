@@ -9,13 +9,13 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: "2dcfd170-f64d-423b-916a-a938b2a0fb30"
+  azureSubscription: "<ARM connection>"
 
   # Web app name
-  webAppName: "ansalemo-nodejs-linux"
+  webAppName: "<webApp name>"
 
   # Environment name
-  environmentName: "ansalemo-nodejs-linux"
+  environmentName: "<webApp name>"
 
   # Agent VM image name
   vmImageName: "ubuntu-latest"
@@ -59,17 +59,17 @@ stages:
               steps:
                 - task: AzureCLI@2
                   inputs:
-                    azureSubscription: 'Ansalemo (4388fa06-bf66-4497-82c2-991ba75ecb97)'
+                    azureSubscription: '<subscription Username> (<subscription Id>)'
                     scriptType: 'pscore'
                     scriptLocation: 'inlineScript'
-                    inlineScript: 'az webapp config set --resource-group "ansalemo-rg" --name "ansalemo-nodejs-linux" --linux-fx-version "NODE|12-lts"'
+                    inlineScript: 'az webapp config set --resource-group "<resource group>" --name "<webApp name>" --linux-fx-version "NODE|12-lts"'
                 - task: AzureRmWebAppDeployment@4
-                  displayName: "Azure App Service Deploy: ansalemo-nodejs-linux"
+                  displayName: "Azure App Service Deploy: <webApp name>"
                   inputs:
                     ConnectionType: "AzureRM"
                     azureSubscription: "Ansalemo (4388fa06-bf66-4497-82c2-991ba75ecb97)"
                     appType: "webApp"
-                    WebAppName: "ansalemo-nodejs-linux"
+                    WebAppName: "<webApp name>"
                     packageForLinux: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
                     startUpCommand: "npm run start"
 
