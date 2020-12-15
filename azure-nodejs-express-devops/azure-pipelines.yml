@@ -1,0 +1,75 @@
+# Node.js Express Web App to Linux on Azure
+
+# Build a Node.js Express app and deploy it to Azure as a Linux web app.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  - master
+
+variables:
+  # Azure Resource Manager connection created during pipeline creation
+  azureSubscription: "2dcfd170-f64d-423b-916a-a938b2a0fb30"
+
+  # Web app name
+  webAppName: "ansalemo-nodejs-linux"
+
+  # Environment name
+  environmentName: "ansalemo-nodejs-linux"
+
+  # Agent VM image name
+  vmImageName: "ubuntu-latest"
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    pool:
+      vmImage: $(vmImageName)
+    jobs:
+    - job: Build_Staging
+      displayName: Build Staging
+      steps:
+        - script: |
+           npm install 
+        - task: ArchiveFiles@2
+          displayName: 'Archive files'
+          inputs:
+            rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+            includeRootFolder: false   
+            archiveType: zip  
+            archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            replaceExistingArchive: true   
+        - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip  
+          artifact: drop
+
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: Deploy
+        displayName: Deploy
+        environment: $(environmentName)
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureCLI@2
+                  inputs:
+                    azureSubscription: 'Ansalemo (4388fa06-bf66-4497-82c2-991ba75ecb97)'
+                    scriptType: 'pscore'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: 'az webapp config set --resource-group "ansalemo-rg" --name "ansalemo-nodejs-linux" --linux-fx-version "NODE|12-lts"'
+                - task: AzureRmWebAppDeployment@4
+                  displayName: "Azure App Service Deploy: ansalemo-nodejs-linux"
+                  inputs:
+                    ConnectionType: "AzureRM"
+                    azureSubscription: "Ansalemo (4388fa06-bf66-4497-82c2-991ba75ecb97)"
+                    appType: "webApp"
+                    WebAppName: "ansalemo-nodejs-linux"
+                    packageForLinux: "$(Pipeline.Workspace)/drop/$(Build.BuildId).zip"
+                    startUpCommand: "npm run start"
+
