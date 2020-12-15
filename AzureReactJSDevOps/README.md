@@ -1,0 +1,1 @@
+A sample React Application to test building of DevOps pipelines
