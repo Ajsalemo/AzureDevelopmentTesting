@@ -1,1 +1,1 @@
-A sample React Application to test building of DevOps pipelines
+A sample React Application to test building of DevOps pipelines using Pm2 to serve the /build folder for static assets.
