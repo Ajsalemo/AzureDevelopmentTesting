@@ -1,0 +1,8 @@
+{
+  "name": "AzurePerformanceTestExamples",
+  "version": "1.0.0",
+  "description": "Example(s) to generate bad/high load for testing scenarios",
+  "main": "index.js",
+  "author": "Anthony Salemo",
+  "license": "MIT"
+}
