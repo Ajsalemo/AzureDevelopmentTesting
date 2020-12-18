@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/high_memory", (req, res) => {
-  res.json("Placeholder");
+  res.render("high_memory");
 });
 
 app.listen(PORT, () => {
