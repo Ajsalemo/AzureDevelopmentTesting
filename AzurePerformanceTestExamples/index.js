@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
+app.get("/high_memory", (req, res) => {
+  res.json("Placeholder");
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
