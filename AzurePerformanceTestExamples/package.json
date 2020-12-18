@@ -4,5 +4,17 @@
   "description": "Example(s) to generate bad/high load for testing scenarios",
   "main": "index.js",
   "author": "Anthony Salemo",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "express": "^4.17.1",
+    "postcss": "^8.2.1",
+    "postcss-cli": "^8.3.1",
+    "pug": "^3.0.0",
+    "tailwindcss": "^2.0.2"
+  }
 }
