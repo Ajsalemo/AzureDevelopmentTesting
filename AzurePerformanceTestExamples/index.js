@@ -13,7 +13,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/high_memory", (req, res) => {
-  res.render("high_memory");
+  const mu = process.memoryUsage();
+  const message = "Starting memory allocation..";
+  setTimeout(() => {
+    while (true) {
+      const mu = process.memoryUsage();
+      console.log(`Heap used: ${mu.heapUsed}`);
+    }
+  }, 3000);
+  res.render("high_memory", {
+    message: message,
+  });
 });
 
 app.listen(PORT, () => {
