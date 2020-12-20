@@ -1,5 +1,5 @@
 const express = require("express");
-const { sleep } = require('sleep');
+const { sleep } = require("sleep");
 
 const path = require("path");
 const app = express();
@@ -19,7 +19,6 @@ app.get("/high_memory", (req, res) => {
   setTimeout(() => {
     while (true) {
       const mu = process.memoryUsage();
-      console.log(`Heap used: ${mu.heapUsed}`);
     }
   }, 3000);
   res.render("high_memory", {
@@ -30,10 +29,13 @@ app.get("/high_memory", (req, res) => {
 app.get("/high_cpu", (req, res) => {
   const message = "Starting CPU allocation.. Keep making multiple requests";
   sleep(5);
+  for (let i = 0; i > -1; i++) {
+    console.log(`Starting CPU allocation - iteration ${i}`)
+  }
   res.render("high_cpu", {
     message: message,
   });
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
