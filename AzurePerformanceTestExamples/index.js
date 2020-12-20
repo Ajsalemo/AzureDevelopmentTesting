@@ -14,21 +14,32 @@ app.get("/", (req, res) => {
 });
 
 app.get("/high_cpu", (req, res) => {
-  // const mu = process.memoryUsage();
-  // const message = "Starting CPU allocation..";
-  // sleep(15)
-  // setTimeout(() => {
-  //   while (true) {
-  //     const mu = process.memoryUsage();
-  //   }
-  // }, 3000);
-  res.render("high_memory", {
+  const message = "Starting CPU allocation..";
+  const number = parseInt(1000);
+  // Run the sequence to take time up on the main thread
+  // Use a load test/benchmark tool to run subsequent requests to watch CPU increase while the operation runs
+  setTimeout(() => {
+    let n1 = 0;
+    let n2 = 1;
+    let nextTerm;
+
+    console.log("Fibonacci Series:");
+
+    for (let i = 1; i <= number; i++) {
+      console.log(n1);
+      nextTerm = n1 + n2;
+      n1 = n2;
+      n2 = nextTerm;
+    }
+  }, 3000);
+
+  res.render("high_cpu", {
     message: message,
   });
 });
 
 app.get("/high_memory", (req, res) => {
-  // This will cause Javascript Heap Out Of Memory
+  // This will cause Javascript Heap Out Of Memory (Note: This may take a few minutes to occur)
   const message = "Starting memory allocation..";
   setTimeout(() => {
     for (let i = 0; i > -1; i++) {
