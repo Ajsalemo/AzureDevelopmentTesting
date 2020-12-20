@@ -13,26 +13,29 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/high_memory", (req, res) => {
-  const mu = process.memoryUsage();
-  const message = "Starting memory allocation..";
-  setTimeout(() => {
-    while (true) {
-      const mu = process.memoryUsage();
-    }
-  }, 3000);
+app.get("/high_cpu", (req, res) => {
+  // const mu = process.memoryUsage();
+  // const message = "Starting CPU allocation..";
+  // sleep(15)
+  // setTimeout(() => {
+  //   while (true) {
+  //     const mu = process.memoryUsage();
+  //   }
+  // }, 3000);
   res.render("high_memory", {
     message: message,
   });
 });
 
-app.get("/high_cpu", (req, res) => {
-  const message = "Starting CPU allocation.. Keep making multiple requests";
-  sleep(5);
-  for (let i = 0; i > -1; i++) {
-    console.log(`Starting CPU allocation - iteration ${i}`)
-  }
-  res.render("high_cpu", {
+app.get("/high_memory", (req, res) => {
+  // This will cause Javascript Heap Out Of Memory
+  const message = "Starting memory allocation..";
+  setTimeout(() => {
+    for (let i = 0; i > -1; i++) {
+      console.log(`Starting Memory allocation - iteration ${i}`);
+    }
+  }, 3000);
+  res.render("high_memory", {
     message: message,
   });
 });
