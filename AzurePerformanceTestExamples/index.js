@@ -1,4 +1,5 @@
 const express = require("express");
+const { sleep } = require('sleep');
 
 const path = require("path");
 const app = express();
@@ -25,6 +26,14 @@ app.get("/high_memory", (req, res) => {
     message: message,
   });
 });
+
+app.get("/high_cpu", (req, res) => {
+  const message = "Starting CPU allocation.. Keep making multiple requests";
+  sleep(5);
+  res.render("high_cpu", {
+    message: message,
+  });
+})
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);

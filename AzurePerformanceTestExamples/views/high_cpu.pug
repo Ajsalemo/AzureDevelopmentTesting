@@ -1,0 +1,10 @@
+extends main_layout.pug
+
+block nav
+  nav.text-white
+      a(href='/') Home
+block page_content
+    div.text-center.flex.h-full.justify-center.flex-col
+        span.text-white= message
+        div
+          i.fas.fa-spinner.text-blue-700.animate-spin.w-min

@@ -15,6 +15,7 @@
     "postcss": "^8.2.1",
     "postcss-cli": "^8.3.1",
     "pug": "^3.0.0",
+    "sleep": "^6.3.0",
     "tailwindcss": "^2.0.2"
   }
 }

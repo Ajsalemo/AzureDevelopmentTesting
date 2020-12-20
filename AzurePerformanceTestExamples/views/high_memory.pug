@@ -1,16 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
-    title Azure Performance Testing Samples
-    link(href="./styles/style.css", rel="stylesheet")
-    <script src="https://kit.fontawesome.com/8c2ad7b11b.js" crossorigin="anonymous"></script>
-  body.h-screen.bg-black
-    nav.text-white
+extends main_layout.pug
+
+block nav
+  nav.text-white
       a(href='/') Home
-    div.text-center.flex.h-full.justify-center.flex-col
-        span.text-white= message
-        div
-          i.fas.fa-spinner.text-blue-700.animate-spin.w-min
+block page_content
+  div.text-center.flex.h-full.justify-center.flex-col
+      span.text-white= message
+      div
+        i.fas.fa-spinner.text-blue-700.animate-spin.w-min
