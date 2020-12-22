@@ -1,0 +1,7 @@
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.csprojAssemblyReference.cache
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.AssemblyInfoInputs.cache
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.AssemblyInfo.cs
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.csproj.CoreCompileInputs.cache
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.RazorAssemblyInfo.cache
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\WindowsDotNetCoreContainer.RazorAssemblyInfo.cs
+C:\Users\ansalemo\Documents\Code\AzureDevelopmentTesting\WindowsDotNetCoreContainer\WindowsDotNetCoreContainer\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
