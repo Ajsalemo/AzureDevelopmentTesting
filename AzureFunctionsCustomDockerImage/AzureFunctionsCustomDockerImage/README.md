@@ -4,7 +4,7 @@
 Add the needed environment variables to connect to your Postgre server, either locally or remote.
 
 Execute the HTTP trigger with the below syntax:
-localhost:7071/api/HttpExample?name=<enter-a-value>
+localhost:7071/api/HttpExample?name=enter-any-value
 
 or if deployed on Azure
 
