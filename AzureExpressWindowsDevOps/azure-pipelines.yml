@@ -1,0 +1,24 @@
+# NOTE: Below is the YAML output of tasks using VSTRM
+
+pool:
+  name: Azure Pipelines
+steps:
+  - task: NodeTool@0
+    displayName: "Use Node version"
+    inputs:
+      versionSpec: 8.4
+
+  - task: Npm@0
+    displayName: "Install application dependencies"
+    inputs:
+      cwd: AzureExpressWindowsDevOps/
+      arguments: "--force"
+
+  - task: ArchiveFiles@1
+    displayName: "Archive files "
+    inputs:
+      rootFolder: AzureExpressWindowsDevOps/
+      includeRootFolder: false
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact: drop"
